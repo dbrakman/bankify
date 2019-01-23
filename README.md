@@ -11,5 +11,7 @@ Bankify is a high-concept (read "nonfunctional") application for web and iOS for
 
 ## Running
 **Balance Tokenizer**: From within the `Balance_Tokenizer` folder, run `node app.js`, then visit localhost:2000 in a browser.
+
 **Transaction Hero**: Launch a web server from within the `Transaction_Hero` folder and view the result in a browser. E.g., run `python -m SimpleHTTPServer`.
+
 **IOS Interface**: Build and run via the XCode Project menu.
