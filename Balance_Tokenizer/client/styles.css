@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+}
+
+.screen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.screen#login-screen {
+    background-color: lightblue;
+    z-index: 10;
+}
+
+.screen h1 {
+    font-size: 2em;
+}
+
+.screen .title {
+    margin: 25vh auto;
+    text-align: center;
+    font-size: 2em;
+}
+
+.screen#login-screen .title * {
+    margin: 10px auto;
+    text-align: center;
+
+}
+.screen#login-screen .title #name-submit {
+    font-size: 1.5em;
+}
+
+.screen#token-screen {
+    background-color: orange;
+    z-index: 9;
+}
+
+.screen.popup {
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 15;
+}
+
+.screen.popup .content {
+    text-align: center;
+    font-size: 2em;
+
+    width: 50%;
+    margin: 25vh 25%;
+    height: 50vh;
+    background-color: white;
+    position: fixed;
+    padding: 0px 40px;
+}
+
+.screen.popup .content button {
+    margin: 0 20px;
+    width: 100px;
+}
+
+
+.screen#token-screen .token-btn {
+    width: 20%;
+    min-height: 40vh;
+    background-color: #eee !important;
+    border-bottom: 3px solid grey;
+    border-right: 3px solid grey;
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+    color: grey;
+    font-weight: bold;
+    display: inline-block;
+    float: left;
+}
+.screen#token-screen #token-holder {
+    margin: 0 12.5%;
+}
+.screen#token-screen div.token-btn h2 {
+    padding: 10px 0px;
+}
+.screen#token-screen div.token-btn input {
+    text-align: center;
+    width: 80%;
+}
+.screen#token-screen div.token-btn button#token-submit {
+    font-size: 0.7em;
+}
+
+.screen#token-screen button img {
+    width: 90%;
+}
+
+.screen#bank-screen h1 {
+    width: 100%;
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 2.5em;
+    background-color: #eee;
+}
+
+.screen#bank-screen h2 {
+    width: 100%;
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 2.5em;
+    background-color: #fff;
+}
+
+.screen#bank-screen h3 {
+    width: 100%;
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.val-display {
+    width: 45%;
+    margin: 0 10px;
+    display: inline-table;
+    background: #cfc;
+}
+
+.val-display h2 {
+    text-align: center;
+}
+
+#back-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 3em;
+    padding: 20px;
+    background-color: #bbb;
+    z-index: 8;
+}

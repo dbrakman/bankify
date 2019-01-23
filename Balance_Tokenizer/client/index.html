@@ -1,0 +1,84 @@
+<html>
+<head>
+  <title>TokenBank | By CapitalOne</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="scripts.js" type="text/javascript"></script>
+  <script data-main="lib/capital_one" src="lib/require-jquery.js"></script>
+
+</head>
+<body>
+    <div id="login-screen" class="screen">
+        <div class="title">
+            <h1>TokenBank</h1>
+            <input id="name-field" placeholder="First and Last Name" align="center"></input>
+            <div id="name-taken-popup" style="display: none;">Name does not exist</div>
+            <br/>
+            <button id="name-submit" type="button" class="btn btn-info">Start</button>
+        </div>
+    </div>
+
+    <div id="token-screen" class="screen">
+        <div class="title">
+            <h1>Choose Your Token</h1><br/>
+            <div id="token-holder">
+                <button class="token-btn"><img src="assets/noodles.png"><span class="token-name">Cup Noodles</span> ($<span class="token-price">0.30</span>)</button>
+                <button class="token-btn"><img src="assets/burger.png"><span class="token-name">Big Macs</span> ($<span class="token-price">3.99</span>)</button>
+                <button class="token-btn"><img src="assets/game.png"><span class="token-name">Video Games</span> ($<span class="token-price">59.99</span>)</button>
+                <button class="token-btn"><img src="assets/iphone.png"><span class="token-name">iPhone XS's</span> ($<span class="token-price">1099.99</span>)</button>
+                <div class="token-btn">
+                    <h2>Custom Item</h2>
+                    <input id="token-name-field" placeholder="Item" align="center"></input>
+                    for
+                    <input id="token-cost-field" placeholder="$" align="center"></input>
+                    <button id="token-submit" type="button" class="btn btn-default">Proceed</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="bank-screen" class="screen">
+        <div id="main">
+            <h1>Welcome</h1><br/>
+                <div style="width: 60%; margin: 0 20%;">
+                    <div id="account-bal" class="val-display">
+                        <h3>Account Balance</h3>
+                        <h2>$</h2>
+                        <h2 class="token"></h2>
+                    </div>
+                    <div id="account-rew" class="val-display">
+                        <h3>Rewards Balance</h3>
+                        <h2>$</h2>
+                        <h2 class="token"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="screen popup" id="no-account-screen">
+        <div class="content">
+            <h2>You Are Not A Registered User.</h2>
+            Would You Like To Sign Up?
+            <hr/>
+            <button id="create-account-btn">Yes</button>
+            <button id="no-create-account-btn">No</button>
+        </div>
+    </div>
+
+    <div id="back-button">
+        BACK
+    </div>
+
+
+</body>
+</html>
