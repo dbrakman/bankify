@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Transaction Hero</title>
+    <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
+</div>
+    <h3>Review Your Transactions</h3>
+    <p>Click within the canvas to move your ship up or down as transactions scroll past.</p>
+    <div id="canvasHolder" style="width:1200; height: 600"></div>
+
+<script type="text/javascript">
+
+
+var game = new Phaser.Game(1200, 600, Phaser.CANVAS, 'canvasHolder', {
+    preload: preload, create: create, update: update, render: render
+});
+
+var words = ["foo: -$2", "bar: -$3"];
+var shipSprite;
+var rects = [];
+var drawnWords = []
+var textHeight = 100;
+
+var bullets;
+var enemies;
+
+var fireRate = 100;
+var nextFire = 0;
+
+function preload() {
+    game.load.image('ship', 'assets/sprites/ship.png');
+    game.load.image('bullet', 'assets/sprites/ball.png');
+    game.load.image('txt1', 'assets/sprites/Receipt1.png');
+    game.load.image('txt2', 'assets/sprites/Receipt2.png');
+}
+
+function create() {
+    game.stage.backgroundColor = 0x4488cc;
+    // var randomHeight;
+    // var drawWidth;
+    // for (let word of words) {
+    //     randomHeight = Math.floor(Math.random() * (game.height - textHeight))
+    //     drawWidth = 60 * word.length;
+    //     rects.push(new Phaser.Rectangle(game.width - drawWidth/2, randomHeight, drawWidth, 100));
+    //     drawnWords.push(game.add.text(game.width - drawWidth/2, randomHeight, word, {
+    //         font: "100px Courier",
+    //         fill: "#88ff88",
+    //         align: "left"
+    //     }));
+    // }
+
+    shipSprite = game.add.sprite(25, 250, 'ship');
+    game.physics.enable(shipSprite, Phaser.Physics.ARCADE);
+    shipSprite.body.enable = true;
+
+    enemies = game.add.group();
+    enemies.enableBody = true;
+    enemies.physicsBodyType = Phaser.Physics.ARCADE;
+    enemies.setAll('checkWorldBounds', true);
+    enemies.setAll('outOfBoundsKill', true);
+    tmp = enemies.create(game.width - 600, game.height - 100, 'txt1');
+    tmp.body.velocity.x = -150;
+    tmp = enemies.create(game.width - 600, game.height - 500, 'txt2');
+    tmp.body.velocity.x = -150;
+
+    bullets = game.add.group();
+    bullets.enableBody = true;
+    bullets.physicsBodyType = Phaser.Physics.ARCADE;
+    bullets.setAll('checkWorldBounds', true);
+    bullets.setAll('outOfBoundsKill', true);
+}
+
+function update() {
+    for (let rect of rects) {
+        rect.x = rect.x - 3;
+    }
+    for (let drawnWord of drawnWords) {
+        drawnWord.x = drawnWord.x - 3;
+    }
+    fire();
+    shipSprite.body.velocity.y = (game.input.activePointer.y - 50 - shipSprite.y) * 10;
+    game.physics.arcade.overlap(bullets, enemies, collisionHandler, null, this);
+}
+
+function render() {
+    for (let rect of rects) {
+        game.debug.geom(rect, 'rgba(200,0,0,0.5)');
+    }
+}
+
+
+function fire() {
+
+    if (game.time.now > nextFire)
+    {
+        nextFire = game.time.now + fireRate;
+        var tmp = bullets.create(shipSprite.x + 100 - 25, shipSprite.y + 50 - 25, 'bullet');
+        tmp.body.velocity.x = 500;
+    }
+}
+
+//  Called if the bullet hits one of the enemy sprites
+function collisionHandler (bullet, enemy) {
+    bullet.kill();
+    enemy.kill();
+}
+
+</script>
+
+
+
+</body></html>
